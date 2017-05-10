@@ -39,9 +39,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <div id="banner" >
-          <h1>UForU</h1>
-        </div>
         <Survey sendSurveyInfo = {this.sendSurveyInfo}/>
         <Results colleges = {this.state.colleges}/>
       </div>
