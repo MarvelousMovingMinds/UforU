@@ -1,3 +1,10 @@
+#banner {
+  background-image: url('./backgroundPhotos/library.jpg');
+  background-position: center top;
+  background-size: auto;
+  height: 800px;
+}
+
 body {
   padding-bottom: 80px;
   font-family: Arial;
@@ -25,10 +32,6 @@ input[type=radio] {
 input[type=submit],
 .btn-link {
   margin-top: 20px;
-}
-
-h1 {
-  font-family: Arial;
 }
 
 input[type=text], select {
@@ -66,26 +69,7 @@ select {
   padding: 5px;
   font-size: 16px;
   line-height: 1;
-  border: 0;
+  border: 1px solid gray;
   border-radius: 0;
   height: 34px;
 }
-
-.survey {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-/*.form {
-  margin: 0 auto;
-  padding: 100px 30px 0;
-}
-@media (min-width: 800px) {
-  .form {
-    max-width: 60%;
-  }
-}
-.input-range {
-  margin-bottom: 160px;
-}*/*/

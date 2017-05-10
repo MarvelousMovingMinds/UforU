@@ -12,11 +12,10 @@ class App extends React.Component {
 
     this.state = {
       colleges: []
-    }
+    },
 
     this.sendSurveyInfo = this.sendSurveyInfo.bind(this);
-    
-    
+     
   }
 
   sendSurveyInfo(userData) {
@@ -29,38 +28,20 @@ class App extends React.Component {
       .then ((results) => {
         this.setState({
           colleges: results.data
-        })
-        console.log('axios results: ', results);
+        });
       })
       .catch ((error) => {
         console.log(error);
       });
   }
 
- 
-
-
-  // sendSurveyInfo(userData) {
-  //   $.ajax({
-  //     url: '/api/colleges/suggestions',
-  //     method: 'POST',
-  //     data: userData,
-  //     success: (results) => {
-  //       console.log('ajax results: ', results);
-  //     },
-  //     error: (error) => {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
-
-
-
   render() {
 
     return (
       <div>
-        <h1>UForU</h1>
+        <div id="banner" >
+          <h1>UForU</h1>
+        </div>
         <Survey sendSurveyInfo = {this.sendSurveyInfo}/>
         <Results colleges = {this.state.colleges}/>
       </div>
