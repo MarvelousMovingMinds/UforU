@@ -1,16 +1,23 @@
+#logo {
+  opacity: 1;
+  width: 500px;
+}
+
 #banner {
-  background-image: url('./backgroundPhotos/library.jpg');
-  background-position: center top;
-  background-size: auto;
   height: 800px;
+  background-image: url('./backgroundPhotos/students.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body {
-  padding-bottom: 80px;
   font-family: Arial;
+  background-color: white;
 }
 form {
-  border: 3px solid #ccc;
+  border: 3px solid #FFECB3;
   padding: 0 20px 25px 20px;
   border-radius: 10px;
 }
@@ -32,6 +39,10 @@ input[type=radio] {
 input[type=submit],
 .btn-link {
   margin-top: 20px;
+}
+
+h1 {
+  font-family: Arial;
 }
 
 input[type=text], select {
@@ -69,7 +80,54 @@ select {
   padding: 5px;
   font-size: 16px;
   line-height: 1;
-  border: 1px solid gray;
+  border: 0;
   border-radius: 0;
   height: 34px;
+}
+
+.survey {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px; /* 5px rounded corners */
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px 0 lightBlue;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+.img-circle {
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.description {
+  font-size: 16px;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.college-name {
+    color: black;
+    font-size: 23px;    
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+img { 
+  width: 50%;
+  height: auto;
 }
