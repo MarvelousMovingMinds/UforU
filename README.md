@@ -1,6 +1,6 @@
 # UforU
 
-> Pithy project description
+> Yo ... sup??
 
 ## Team
 
