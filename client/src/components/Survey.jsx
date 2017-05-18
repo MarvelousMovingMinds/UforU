@@ -1,4 +1,6 @@
 import React from 'react';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, DefaultRoute, IndexLink } from 'react-router';
+
 import CheckboxOrRadioGroup from './SurveyHelpers/CheckboxOrRadioGroup.js';
 import SingleInput from './SurveyHelpers/SingleInput.js';
 import TextArea from './SurveyHelpers/TextArea.js';
@@ -47,7 +49,7 @@ class Survey extends React.Component {
   });
 });
   }
-  
+
   handletuition(e) {
     this.setState({ tuition: e.target.value }, () => console.log('Max Tuition:', this.state.tuition));
   }
@@ -76,7 +78,7 @@ class Survey extends React.Component {
   handlesports_division(e) {
     this.setState({ sports_division: e.target.value }, () => console.log('Sports Division', this.state.sports_division));
   }
-  
+
   handleClearForm(e) {
     e.preventDefault();
     this.setState({
@@ -100,11 +102,12 @@ class Survey extends React.Component {
       sports_division: this.state.sports_division
     };
 
-    console.log('Send this in a POST request:', userInfo);
-    
-    this.props.sendSurveyInfo(userInfo);
-
+    hashHistory.push({
+      pathname: '/results',
+      query: userInfo
+    });
   }
+
   render() {
     return (
     <form className="container" onSubmit={this.handleFormSubmit}>
@@ -133,7 +136,7 @@ class Survey extends React.Component {
               onClick={this.handleClearForm}>Clear form</button>
           </div>
         </div>
-        <div className="container-fluid">  
+        <div className="container-fluid">
           <div className="col-md-6">
             <SingleInput
               inputType={'text'}
@@ -154,7 +157,7 @@ class Survey extends React.Component {
           </div>
         </div>
         <div className="container-fluid">
-          <div className="col-md-12">    
+          <div className="col-md-12">
             <CheckboxOrRadioGroup
               title={'WHICH MAJORS ARE YOU INTERESTED IN?'}
               setName={'majors'}
@@ -165,7 +168,7 @@ class Survey extends React.Component {
           </div>
         </div>
         <div className="container-fluid">
-          <div className="col-md-12"> 
+          <div className="col-md-12">
             <CheckboxOrRadioGroup
               title={'WHICH SPORTS DIVISION ARE YOU LOOKING FOR?'}
               setName={'sportsDivision'}
