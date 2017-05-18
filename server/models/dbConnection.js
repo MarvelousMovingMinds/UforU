@@ -1,7 +1,10 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var connection = mysql.createPool(process.env.CLEARDB_DATABASE_URL || {host: '127.0.0.1', user: 'root', password: '', database: 'UFORU'});
+const options = {
+  host: '127.0.0.1',
+  user: 'root',
+  password: '',
+  database: 'UFORU'
+};
 
-// connection.connect();
-
-module.exports.connection = connection;
+module.exports = mysql.createPool(process.env.CLEARDB_DATABASE_URL || options);

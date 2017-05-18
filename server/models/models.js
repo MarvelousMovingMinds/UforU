@@ -1,7 +1,7 @@
-var connection = require('./dbConnection').connection;
-var mySearchFunction = require('./queryHelper.js').mySearchFunction;
-var asyncMap = require('./queryHelper.js').asyncMap;
-var querySchoolTable = require('./queryHelper.js').querySchoolTable;
+const connection = require('./dbConnection');
+const mySearchFunction = require('./queryHelper.js').mySearchFunction;
+const asyncMap = require('./queryHelper.js').asyncMap;
+const querySchoolTable = require('./queryHelper.js').querySchoolTable;
 
 module.exports = {
   colleges: {

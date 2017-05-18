@@ -3,7 +3,7 @@
   "tuition": "",
   "average_gpa": "",
   "average_sat_score": "",
-  "majorOptions": ["Public Administration Social Service", "Theology Religious Vocation", "Agriculture", "Computer Science", "Social Science", "Business Marketing", "Construction", "Security Law Enforcement", "Multidiscipline", "Personal Culinary", "Engineering Technology", "Family Consumer Science", "Philosophy Religious", "Precision Production", "Psychology", "Biological", "Ethnic Studies", "Resources", "Language", "Engineering", "Architecture", "Health", "History", "Humanities", "Mechanic Repair Technology", "Physical Science", "Communications Technology", "Science Technology", "Mathematics", "Parks and Recreation Fitness", "Legal", "Transportation", "Library", "Education", "English", "Visual and Performing Arts", "Communication", "Agriculture"],
+  "majorOptions": ["Public Administration Social Service", "Theology Religious Vocation", "Agriculture", "Computer Science", "Social Science", "Business Marketing", "Construction", "Security Law Enforcement", "Multidiscipline", "Personal Culinary", "Engineering Technology", "Family Consumer Science", "Philosophy Religious", "Precision Production", "Psychology", "Biological", "Ethnic Studies", "Resources", "Language", "Engineering", "Architecture", "Health", "History", "Humanities", "Mechanic Repair Technology", "Physical Science", "Communications Technology", "Science Technology", "Mathematics", "Parks and Recreation Fitness", "Legal", "Transportation", "Library", "Education", "English", "Visual and Performing Arts", "Communication"],
   "major": [],
   "sizeRangeOptions": ["0-999", "1000-4999", "5000-9999", "10000-19999", "20000-45000"],
   "size": "",

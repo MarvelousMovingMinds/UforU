@@ -73,7 +73,7 @@ VALUES
 	(35,'English'),
 	(36,'Visual and Performing Arts'),
 	(37,'Communication'),
-	(38,'Agriculture');
+	(38,'Whatever Seiden Studied');
 
 /*!40000 ALTER TABLE `Majors` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -1,7 +1,7 @@
-var connection = require('./dbConnection').connection;
-var _ = require('underscore');
+const connection = require('./dbConnection');
+const _ = require('underscore');
 
-var asyncMap = function(tasks, cb) {
+const asyncMap = function(tasks, cb) {
   let results = [];
   let remaining = tasks.length;
   tasks.forEach((task, i) => {
@@ -15,7 +15,7 @@ var asyncMap = function(tasks, cb) {
   });
 };
 
-var querySchoolTable = function(column, value, cb) {
+const querySchoolTable = function(column, value, cb) {
   if (column === 'tuition') {
     value = value.replace(/\$/g, '');
     value = value.replace(/,/g, '');
@@ -83,16 +83,16 @@ var mySearchFunction = function(prefs, cb) {
     var inputTuition = prefs.tuition || null;
 
     if (prefs.size !== undefined) {
-      var schoolMin = prefs.size[0]; 
-      var schoolMax = prefs.size[1]; 
+      var schoolMin = prefs.size[0];
+      var schoolMax = prefs.size[1];
     } else {
       var schoolMin = null;
       var schoolMax = null;
     }
-    
+
     arrOfData = JSON.parse(JSON.stringify(arrOfData));
     arrOfData = _.flatten(arrOfData);
-    
+
     if (inputTuition && (schoolMax && schoolMin)) {
 
       inputTuition = inputTuition.replace(/\$/g, '');
@@ -128,9 +128,9 @@ var mySearchFunction = function(prefs, cb) {
       results = _.uniq(results, 'id');
       results = _.sortBy(results, 'average_gpa');
       cb(null, results.reverse());
-      
+
     } else {
-      
+
       var results = arrOfData;
 
       results = _.uniq(results, 'id');
