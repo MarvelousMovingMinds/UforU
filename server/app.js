@@ -1,23 +1,37 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var cors = require('cors');
-var path = require('path');
-var router = require('./router/router.js');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const express = require('express');
+const logger = require('morgan');
+const path = require('path');
+const router = require('./router/router');
+const socketController = require('./controllers/socketControllers');
 
-var app = express();
-var IP = process.env.IP || 'localhost';
-var PORT = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT, function () {
+  console.log('listening on', PORT);
+});
 
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
-
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(router);
 
-app.listen(PORT, function () {
-  console.log('listening right now on port', PORT);
-});
-console.log('listening on', IP, PORT);
+// attach socket.io to server and port
+var io = require('socket.io')(server);
 
-module.exports.app = app;
+// listeners for socket.io events
+io.on('connection', function(client) {
+  client.on('room', function(room) {
+    client.join(room);
+    io.to(room).emit('roomResponse', 'You are in room: ' + room);
+
+    client.on('comment', function(post) {
+      socketController.comments.addComment(post, room, client);
+    });
+  });
+});
+
+module.exports.io = io;

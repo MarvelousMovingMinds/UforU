@@ -1,4 +1,6 @@
 import React from 'react';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory, DefaultRoute, IndexLink } from 'react-router';
+
 import CheckboxOrRadioGroup from './SurveyHelpers/CheckboxOrRadioGroup.js';
 import SingleInput from './SurveyHelpers/SingleInput.js';
 import TextArea from './SurveyHelpers/TextArea.js';
@@ -32,7 +34,6 @@ class Survey extends React.Component {
     fetch('./startingData.json')
 			.then(res => res.json())
 			.then(data => {
-  console.log(data);
   this.setState({
     maxTuitionOptions: data.maxTuitionOptions,
     tuition: data.tuition,
@@ -47,7 +48,7 @@ class Survey extends React.Component {
   });
 });
   }
-  
+
   handletuition(e) {
     this.setState({ tuition: e.target.value }, () => console.log('Max Tuition:', this.state.tuition));
   }
@@ -76,7 +77,7 @@ class Survey extends React.Component {
   handlesports_division(e) {
     this.setState({ sports_division: e.target.value }, () => console.log('Sports Division', this.state.sports_division));
   }
-  
+
   handleClearForm(e) {
     e.preventDefault();
     this.setState({
@@ -100,86 +101,89 @@ class Survey extends React.Component {
       sports_division: this.state.sports_division
     };
 
-    console.log('Send this in a POST request:', userInfo);
-    
-    this.props.sendSurveyInfo(userInfo);
-
+    hashHistory.push({
+      pathname: '/results',
+      query: userInfo
+    });
   }
+
   render() {
     return (
-    <form className="container" onSubmit={this.handleFormSubmit}>
-				<h5><u><b>UNIVERSITY PREFERENCES</b></u></h5>
-        <div className="container-fluid">
-          <div className="col-md-5">
-            <Select
-              name={'maxTuition'}
-              placeholder={'Max tuition per year'}
-              controlFunc={this.handletuition}
-              options={this.state.maxTuitionOptions}
-              selectedOption={this.state.tuition} />
-          </div>
-          <div className="col-md-5">
-            <Select
-              name={'sizeRange'}
-              placeholder={'Preferred student body size'}
-              controlFunc={this.handlesize}
-              options={this.state.sizeRangeOptions}
-              selectedOption={this.state.size} />
-          </div>
-          <div className="col-md-2">
-            <button
-              className="button"
-              className="btn btn-primary btn-lg pull-right"
-              onClick={this.handleClearForm}>Clear form</button>
-          </div>
-        </div>
-        <div className="container-fluid">  
-          <div className="col-md-6">
-            <SingleInput
-              inputType={'text'}
-              title={'ESTIMATED AVERAGE GPA'}
-              name={'average_gpa'}
-              controlFunc={this.handleaverage_gpaChange}
-              content={this.state.average_gpa}
-              placeholder={'Type estimated average GPA here'} />
-          </div>
-          <div className="col-md-6">
-            <SingleInput
-              inputType={'text'}
-              title={'SAT SCORE'}
-              name={'average_sat_score'}
-              controlFunc={this.handleaverage_sat_scoreChange}
-              content={this.state.average_sat_score}
-              placeholder={'Type your SAT Score here'} />
-          </div>
-        </div>
-        <div className="container-fluid">
-          <div className="col-md-12">    
-            <CheckboxOrRadioGroup
-              title={'WHICH MAJORS ARE YOU INTERESTED IN?'}
-              setName={'majors'}
-              type={'checkbox'}
-              controlFunc={this.handleMajorSelection}
-              options={this.state.majorOptions}
-              selectedOptions={this.state.majors} />
-          </div>
-        </div>
-        <div className="container-fluid">
-          <div className="col-md-12"> 
-            <CheckboxOrRadioGroup
-              title={'WHICH SPORTS DIVISION ARE YOU LOOKING FOR?'}
-              setName={'sportsDivision'}
-              type={'checkbox'}
-              controlFunc={this.handlesports_division}
-              options={this.state.sportsDivisionOptions}
-              selectedOptions={this.state.sports_division} />
-          </div>
-          <input
-            type="submit"
-            className="btn btn-primary float-right"
-            value="Submit"/>
-        </div>
-    </form>
+      // this triple nested container is jank to figure out later
+      // eric moved the new container-fluid wrapper from Home.jsx
+      <div className="container-fluid">
+        <form className="container" onSubmit={this.handleFormSubmit}>
+    				<h5><u><b>UNIVERSITY PREFERENCES</b></u></h5>
+            <div className="row">
+              <div className="col-md-6">
+                <Select
+                  name={'maxTuition'}
+                  placeholder={'Max tuition per year'}
+                  controlFunc={this.handletuition}
+                  options={this.state.maxTuitionOptions}
+                  selectedOption={this.state.tuition} />
+              </div>
+              <div className="col-md-6">
+                <Select
+                  name={'sizeRange'}
+                  placeholder={'Preferred student body size'}
+                  controlFunc={this.handlesize}
+                  options={this.state.sizeRangeOptions}
+                  selectedOption={this.state.size} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-6">
+                <SingleInput
+                  inputType={'text'}
+                  title={'ESTIMATED AVERAGE GPA'}
+                  name={'average_gpa'}
+                  controlFunc={this.handleaverage_gpaChange}
+                  content={this.state.average_gpa}
+                  placeholder={'Type estimated average GPA here'} />
+              </div>
+              <div className="col-md-6">
+                <SingleInput
+                  inputType={'text'}
+                  title={'SAT SCORE'}
+                  name={'average_sat_score'}
+                  controlFunc={this.handleaverage_sat_scoreChange}
+                  content={this.state.average_sat_score}
+                  placeholder={'Type your SAT Score here'} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <CheckboxOrRadioGroup
+                  title={'WHICH MAJORS ARE YOU INTERESTED IN?'}
+                  setName={'majors'}
+                  type={'checkbox'}
+                  controlFunc={this.handleMajorSelection}
+                  options={this.state.majorOptions}
+                  selectedOptions={this.state.majors} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <CheckboxOrRadioGroup
+                  title={'WHICH SPORTS DIVISION ARE YOU LOOKING FOR?'}
+                  setName={'sportsDivision'}
+                  type={'checkbox'}
+                  controlFunc={this.handlesports_division}
+                  options={this.state.sportsDivisionOptions}
+                  selectedOptions={this.state.sports_division} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-xs-12">
+                <input
+                  type="submit"
+                  className="btn btn-primary"
+                  value="Submit"/>
+              </div>
+            </div>
+        </form>
+      </div>
     );
   }
 }

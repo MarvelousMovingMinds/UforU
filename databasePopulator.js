@@ -1,7 +1,6 @@
 var fs = require('fs');
 var mysql = require('mysql');
 var path = require('path');
-var $ = require('jquery');
 var Bing = require('node-bing-api')({ accKey: 'b7ce17b62cb3407d81318bb1bc5ea63a' });
 var sleep = require('sleep');
 
@@ -368,12 +367,12 @@ for (var i = 339; i < 347; i++) {
   sleep.sleep(1);
 
   console.log(i);
-  
+
   Bing.images(schoolNames[i], {count: 1 }, function (error, res, body) {
     getMeAllImages(body.value[0].thumbnailUrl);
   });
 
-  
+
 }
 console.log(schoolNames.length);
 

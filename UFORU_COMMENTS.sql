@@ -19,6 +19,29 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+DROP TABLE IF EXISTS `Comments`;
+
+CREATE TABLE `Comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user` mediumtext NOT NULL,
+  `comment` mediumtext NOT NULL,
+  `university_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`university_id`)
+    REFERENCES `Universities` (`id`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- LOCK TABLES `Comments` WRITE;
+/*!40000 ALTER TABLE `Comments` DISABLE KEYS */;
+
+INSERT INTO `Comments` (`id`, `user`, `comment`, `university_id`)
+VALUES
+	(1,'Seiden','Cash me outside',1),
+	(2,'Preetak','How bou dah',1);
+
+/*!40000 ALTER TABLE `Majors` ENABLE KEYS */;
+-- UNLOCK TABLES;
 
 # Dump of table Majors
 # ------------------------------------------------------------
