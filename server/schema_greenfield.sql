@@ -47,11 +47,36 @@ CREATE TABLE `Majors` (
 );
 
 -- ---
+-- Table 'Users'
+-- 
+-- ---
+
+
+CREATE TABLE `users` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `username` MEDIUMTEXT NOT NULL,
+  `password` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
 -- Table 'Join'
 -- 
 -- ---
 
-DROP TABLE IF EXISTS `majors_universities`;
+CREATE TABLE `favorites` (
+  `id` INTEGER NOT NULL AUTO_INCREMENT,
+  `user_id` INTEGER NOT NULL,
+  `university_id` INTEGER NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `favorites` ADD FOREIGN KEY (user_id) REFERENCES `users` (`id`);
+ALTER TABLE `favorites` ADD FOREIGN KEY (university_id) REFERENCES `Universities` (`id`);
+-- ---
+-- Table 'Join'
+-- 
+-- ---
 		
 CREATE TABLE `majors_universities` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
@@ -67,21 +92,3 @@ CREATE TABLE `majors_universities` (
 ALTER TABLE `majors_universities` ADD FOREIGN KEY (major_id) REFERENCES `Majors` (`id`);
 ALTER TABLE `majors_universities` ADD FOREIGN KEY (university_id) REFERENCES `Universities` (`id`);
 
--- ---
--- Table Properties
--- ---
-
--- ALTER TABLE `Universities` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `Majors` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `Join` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- ---
--- Test Data
--- ---
-
--- INSERT INTO `Universities` (`id`,`Names`,`Address`,`Admissions Rate`,`Tuition`,`Size`,`Average GPA`,`Average SAT Score`,`Sports Division`) VALUES
--- ('','','','','','','','','');
--- INSERT INTO `Majors` (`id`,`Major`) VALUES
--- ('','');
--- INSERT INTO `Join` (`id`,`Major ID`,`University ID`) VALUES
--- ('','','');
