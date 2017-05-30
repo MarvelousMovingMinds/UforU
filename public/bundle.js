@@ -5447,17 +5447,17 @@ var About = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { className: "col-md-4" },
-            _react2.default.createElement("img", { src: "images/farrah.png", className: "img-responsive bioImages", style: { height: 500, width: 500 }, alt: "FARRAH PHOTO HERE" })
+            _react2.default.createElement("img", { src: "images/farrah_bousetta.png", className: "img-responsive bioImages", style: { height: 500, width: 500 }, alt: "FARRAH PHOTO HERE" })
           ),
           _react2.default.createElement(
             "div",
             { className: "col-md-4" },
-            _react2.default.createElement("img", { src: "images/arseniy.png", className: "img-responsive bioImages", style: { height: 500, width: 500 }, alt: "ARSENIY PHOTO HERE" })
+            _react2.default.createElement("img", { src: "images/arseniy_kotov.png", className: "img-responsive bioImages", style: { height: 500, width: 500 }, alt: "ARSENIY PHOTO HERE" })
           ),
           _react2.default.createElement(
             "div",
             { className: "col-md-4" },
-            _react2.default.createElement("img", { src: "images/hel.png", className: "img-responsive bioImages", style: { height: 500, width: 500 }, alt: "HELEN PHOTO HERE" })
+            _react2.default.createElement("img", { src: "images/helen_tang.png", className: "img-responsive bioImages", style: { height: 500, width: 500 }, alt: "HELEN PHOTO HERE" })
           )
         ),
         _react2.default.createElement(
