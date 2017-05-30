@@ -1,0 +1,22 @@
+{
+  "name": "UforU",
+  "scripts": {},
+  "env": {
+    "CLEARDB_DATABASE_URL": {
+      "required": true
+    },
+    "REDISCLOUD_URL": {
+      "required": true
+    },
+    "COOKIE_SECRET": {
+      "required": true
+    }
+  },
+  "formation": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
