@@ -7,7 +7,7 @@ var bcrypt = require('bcrypt-nodejs');
 module.exports = {
   colleges: {
     get: function (cb) {
-      connection.query('SELECT * FROM Universities', function (err, results, fields) {
+      connection.query('SELECT * FROM Universities', function(err, results, fields) {
         if (err) {
           cb(err, null);
         } else {
@@ -15,7 +15,7 @@ module.exports = {
         }
       });
     },
-    getSuggestions: function (params, cb) {
+    getSuggestions: function(params, cb) {
       mySearchFunction(params, function (err, data) {
         if (err) {
           cb(err, null);
@@ -28,7 +28,7 @@ module.exports = {
   signup: {
     post: function (username, password, cb) {
       console.log('beginning of model function for signup');
-      connection.query('SELECT * from Users Where username = ?', username, function (err, results, fields) {
+      connection.query('SELECT * FROM Users WHERE username = ?', username, function(err, results, fields) {
         if (err) {
           cb(err, null);
         } else {
@@ -42,7 +42,7 @@ module.exports = {
               if (err) {
                 console.log('Error hashing password', err);
               } else {
-                connection.query('Insert into Users (username, password) Values (?, ?)', [username, hash], function (err, results, fields) {
+                connection.query('INSERT INTO Users (username, password) VALUES (?, ?)', [username, hash], function(err, results, fields) {
                   if (err) {
                     cb(err, null);
                   } else {
@@ -60,7 +60,7 @@ module.exports = {
   login: {
     post: function (username, password, cb) {
       // update the logic. Get hashed password (err if null) => bcrypt compare if they match 
-      connection.query('Select password from Users where username = ?', [username], function (err, results, fields) {
+      connection.query('SELECT password FROM Users WHERE username = ?', [username], function(err, results, fields) {
         if (err) {
           cb(err, null);
         } else {
@@ -86,21 +86,23 @@ module.exports = {
   },
 
   favorites: {
-    post: function (username, collegeID, callback) {
-      connection.query('select id from users where username = ?', username, function (error, rows, fields) {
+    post: function (username, collegeID, cb) {
+      connection.query('SELECT id FROM users WHERE username = ?', username, function(err, rows, fields) {
         var id = JSON.parse(JSON.stringify(rows))[0].id;
         console.log('userID is ', id);
         var dbArray = [id, collegeID];
-        connection.query('insert into favoriteus set user_id = ?, university_id = ?', dbArray, function (error, rows, fields) {
-          if (!error) {
+        connection.query('INSERT INTO favoriteus SET user_id = ?, university_id = ?', dbArray, function(error, rows, fields) {
+          if (err) {
+            cb(err, null);
+          } else {
             console.log('favorite added');
-            callback(null, 'Favorite added by the model');
+            cb(null, 'Favorite added by the model');
           }
         });
       });
     },
     get: function (username, cb) {
-      connection.query('SELECT * FROM universities JOIN  favoriteus ON universities.id = favoriteus.university_id JOIN users ON users.id = favoriteus.user_id WHERE users.username = ?', username, function (err, results, fields) {
+      connection.query('SELECT * FROM universities JOIN favoriteus ON universities.id = favoriteus.university_id JOIN users ON users.id = favoriteus.user_id WHERE users.username = ?', username, function(err, results, fields) {
         if (err) {
           cb(err, null);
         } else {
@@ -108,22 +110,20 @@ module.exports = {
         }
       });
     },
-    delete: function (username, collegeID, callback) {
-      connection.query('select id from users where username = ?', username, function (error, rows, fields) {
+    delete: function (username, collegeID, cb) {
+      connection.query('SELECT id FROM users WHERE username = ?', username, function(err, rows, fields) {
         var id = JSON.parse(JSON.stringify(rows))[0].id;
-        console.log('userID to delete a favorite is ', id);
         var dbArray = [id, collegeID];
-        console.log('DBARRAY --->', dbArray);
-        connection.query('DELETE FROM favoriteus WHERE user_id = ? AND university_id = ?', dbArray, function (error, rows, fields) {
-          if (error) {
-            console.log('error in deleting user says the model');
+        connection.query('DELETE FROM favoriteus WHERE user_id = ? AND university_id = ?', dbArray, function(err, rows, fields) {
+          if (err) {
+            cb(err, null);
           } else {
             console.log('rows after deleting from DB ', rows);
-            connection.query('SELECT * FROM universities JOIN  favoriteus ON universities.id = favoriteus.university_id JOIN users ON users.id = favoriteus.user_id WHERE users.username = ?', username, function (err, results, fields) {
-              if (!err) {
-                callback(null, JSON.stringify(results));
+            connection.query('SELECT * FROM universities JOIN favoriteus ON universities.id = favoriteus.university_id JOIN users ON users.id = favoriteus.user_id WHERE users.username = ?', username, function(err, results, fields) {
+              if (err) {
+                cb(err, null);
               } else {
-                callback(err, null);
+                cb(null, JSON.stringify(results));
               }
             });
           }
