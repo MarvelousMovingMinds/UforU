@@ -5469,7 +5469,7 @@ var About = function (_React$Component) {
             _react2.default.createElement(
               "p",
               null,
-              "Farrah - not the Fawcett kind. The kind who actually gets shit done"
+              "Farrah Bousetta is an up and comming software engineer with previous work experience at top companies such as Facebook, Google and more."
             )
           ),
           _react2.default.createElement(
@@ -5478,7 +5478,7 @@ var About = function (_React$Component) {
             _react2.default.createElement(
               "p",
               null,
-              "Myself Arseniy! I go hunting with Vodka drinking buddy Vlad!"
+              "Arseniy Kotov is an all-star professional Full Stack Software Engineer."
             )
           ),
           _react2.default.createElement(
@@ -5487,7 +5487,7 @@ var About = function (_React$Component) {
             _react2.default.createElement(
               "p",
               null,
-              "Helen from Houston. WHO SAYS GIRLS CAN\"T CODE???"
+              "Lorem ipsum"
             )
           )
         )

@@ -23,13 +23,13 @@ class About extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-4">
-              <p>Farrah - not the Fawcett kind. The kind who actually gets shit done</p>
+              <p>Farrah Bousetta is an up and comming software engineer with previous work experience at top companies such as Facebook, Google and more.</p>
             </div>
             <div className="col-md-4">
-              <p>Myself Arseniy! I go hunting with Vodka drinking buddy Vlad!</p>
+              <p>Arseniy Kotov is an all-star professional Full Stack Software Engineer.</p>
             </div>
             <div className="col-md-4">
-              <p>Helen from Houston. WHO SAYS GIRLS CAN"T CODE???</p>
+              <p>Lorem ipsum</p>
             </div>
           </div>
          </div>
