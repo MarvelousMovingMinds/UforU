@@ -71,7 +71,7 @@ CREATE TABLE `favorites` (
   PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `favorites` ADD FOREIGN KEY (user_id) REFERENCES `user` (`id`);
+ALTER TABLE `favorites` ADD FOREIGN KEY (user_id) REFERENCES `users` (`id`);
 ALTER TABLE `favorites` ADD FOREIGN KEY (university_id) REFERENCES `Universities` (`id`);
 -- ---
 -- Table 'Join'
