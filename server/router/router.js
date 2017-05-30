@@ -19,8 +19,4 @@ router.post('/login', controllers.login.post);
 
 router.post('/logout', controllers.logout.post);
 
-
-
-
-
 module.exports = router;
