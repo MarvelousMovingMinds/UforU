@@ -136,13 +136,9 @@ module.exports = {
     post: function(req, res) {
       var session = req.session;
       if (session.user) {
-        res
-          .status(200)
-          .send(session.user);
+        res.send(session.user);
       } else {
-        res
-          .status(404)
-          .send(null);
+        res.send(null);
       }
     }
   },

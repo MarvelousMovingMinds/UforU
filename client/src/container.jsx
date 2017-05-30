@@ -14,7 +14,7 @@ class Container extends React.Component {
 
   componentWillMount() {
     axios({
-      url: '/auth',
+      url: '/api/auth',
       method: 'POST'
     })
       .then((results) => {

@@ -19,7 +19,7 @@ class Login extends React.Component {
   onLoginSubmit () {
     let userInfo = {username: this.state.username, password: this.state.password};
     axios({
-      url: '/login',
+      url: '/api/login',
       method: 'POST',
       data: userInfo
     })
