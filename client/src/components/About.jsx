@@ -12,13 +12,13 @@ class About extends React.Component {
           <div className="row" className="bio">
             <h6><b><u>ABOUT THE CREATORS</u></b></h6>
             <div className="col-md-4">
-              <img src="images/farrah_bousetta.png" className="img-responsive bioImages" style={{ height: 500, width: 500 }} alt="FARRAH PHOTO HERE"/>
+            <img src="images/farrah_bousetta.png" className="img-responsive bioImages" style={{ height: 200, width: 200 }} alt="FARRAH PHOTO HERE"/>
             </div>
             <div className="col-md-4">
-              <img src="images/arseniy_kotov.png" className="img-responsive bioImages" style={{ height: 500, width: 500}} alt="ARSENIY PHOTO HERE"/>
+            <img src="images/arseniy_kotov.png" className="img-responsive bioImages" style={{ height: 200, width: 200}} alt="ARSENIY PHOTO HERE"/>
             </div>
             <div className="col-md-4">
-              <img src="images/helen_tang.png" className="img-responsive bioImages" style={{ height: 500, width: 500 }} alt="HELEN PHOTO HERE"/>
+            <img src="images/helen_tang.png" className="img-responsive bioImages" style={{ height: 200, width: 200 }} alt="HELEN PHOTO HERE"/>
             </div>
           </div>
           <div className="row">
