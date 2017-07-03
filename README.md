@@ -1,39 +1,25 @@
 # UforU
 
-> Pithy project description
+  > An Application that matches prospective students to colleges in California
 
 ## Team
 
   - Arseniy Kotov
   - Helen Tang
   - Farrah Bousetta
+  - Rishi Raje
+  - Aaron Xavior
+  - Jennifer Hwa 
 
-## Table of Contents
+## Technologies
+  
+  > The following was used for this application
+  - React
+  - Node.js
+  - Express
+  - MySQL
+  - Redis
+  - Sessions
+  - React Router
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Roadmap](#roadmap)
-1. [Contributing](#contributing)
 
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install
-```
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
