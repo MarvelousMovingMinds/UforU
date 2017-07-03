@@ -7,6 +7,9 @@
   - Arseniy Kotov
   - Helen Tang
   - Farrah Bousetta
+  - Rishi Raje
+  - Aaron Xavior
+  - Jennifer Hwa 
 
 ## Technologies
   
